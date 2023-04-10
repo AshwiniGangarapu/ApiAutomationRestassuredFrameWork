@@ -1,0 +1,10 @@
+{
+    "driver_name": "Name",
+    "address": "Address",
+    "route": "Route",
+    "complaints": "Complaints",
+    "phone_number": "PhoneNumber",
+    "lic_no": "LicNo",
+    "experience": "Experience",
+    "age": "Age"
+}
