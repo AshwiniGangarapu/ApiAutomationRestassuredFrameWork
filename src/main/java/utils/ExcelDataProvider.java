@@ -65,9 +65,14 @@ public class ExcelDataProvider {
 		Object[][] data = null;
 		try {
 			//for reading initialization of Test Data sheet
+
+			System.out.println("################## "+getExcelFileName(method)[1]);
+
+			System.out.println("################## "+getExcelFileName(method)[0]);
+
 			FileInputStream fis = new FileInputStream("./testData/"+getExcelFileName(method)[1]+".xlsx");
 			XSSFWorkbook wb = new XSSFWorkbook(fis);
-			XSSFSheet sheet = wb.getSheetAt(0);
+			XSSFSheet sheet = wb.getSheet(getExcelFileName(method)[0]);
 			int fullRowCount = sheet.getLastRowNum();
 			int fullColumnCount = 0;
 			String name = method.getName();
@@ -124,18 +129,18 @@ public class ExcelDataProvider {
 								//String cellData = sheet.getRow(i).getCell(j).getRawValue().toString();
 								
 								if(cellData.contains("##")){
-									String regEx="\\d+";
-									String sub=cellData.substring(0,3);
-									if(sub.matches(regEx)){
+									//String regEx="\\d+";
+									String sub=cellData.substring(0,2);
+								//	if(sub.matches(regEx)){
 										long number=generateRandomNumber();
 										cellData=sub.concat(Long.toString((number)));
 									//	System.out.println(cellData);
-									}else{
-										int len=cellData.substring(2,cellData.length()).length();
-										String alpha=generateRandomString(len);
-										cellData=cellData.substring(0,2).concat(alpha);
+									//}
+								} else if(cellData.contains("$$")){
+									int len=cellData.substring(6,cellData.length()).length();
+									String alpha=generateRandomString(len);
+									cellData=cellData.substring(0,6).concat(alpha);
 									//	System.out.println(cellData);
-									}
 								}
 								
 								map.put(list.get(j-2),cellData);

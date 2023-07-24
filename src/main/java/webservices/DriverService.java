@@ -20,6 +20,7 @@ public class DriverService extends GenericWrappers {
 		String endPoint = prop.getProperty("BaseURL").concat(prop.getProperty("DriverEndPoint"));
 
 		JSONObject data = createBodyFromJsonFile(map, "ReadJsonCreateDriver");
+
 		String body = data.toString();
 
 		try {
@@ -32,6 +33,31 @@ public class DriverService extends GenericWrappers {
 		} catch (Exception e) {
 			logTestSteps("Fail", "Exception :" + e);
 		}
+
+
+		switch (map.get("MissingFiled").toString()){
+			case "FirstName":
+
+
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	}
 }

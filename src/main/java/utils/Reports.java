@@ -10,6 +10,7 @@ import com.relevantcodes.extentreports.LogStatus;
 public class Reports {
 
 	public static ExtentReports extents;
+
 	public ExtentTest test;
 	public String testCaseName, testCaseDescription, author, categrory;
 

@@ -85,7 +85,7 @@ public class GenericWrappers extends Reports implements Wrappers {
 			if (stringExactEquals(expectedStatusCode, Integer.toString(response.getStatusCode()))) {
 				logTestSteps("Pass", "Response Status code " + expectedStatusCode);
 			} else {
-				logTestSteps("fail", "Expected status code " + expectedStatusCode + " Actial status code "
+				logTestSteps("fail", "Expected status code " + expectedStatusCode + " Actual status code "
 						+ response.getStatusCode());
 			}
 
@@ -177,12 +177,15 @@ public class GenericWrappers extends Reports implements Wrappers {
 			Set<String> jsonKeys = jsonObject.keySet();
 
 			for (String itemsKey : jsonKeys) {
-				String jsonValue = jsonObject.get(itemsKey).toString();
-				if (jsonValue.equalsIgnoreCase(map.get("MissingField").toString())) {
+
+				//String jsonValue = jsonObject.get(itemsKey).toString();
+
+				/*if (itemsKey.equalsIgnoreCase(map.get("MissingField").toString())) {
 					jsonObject.remove(itemsKey);
-					continue;
-				}
-				String dataTypeChange = "age,phone_number";
+					//continue;
+				}*/
+
+				/*String dataTypeChange = "age,phone_number";
 				if (dataTypeChange.contains(itemsKey)) {
 					try {
 						jsonObject.put(itemsKey, Long.parseLong(map.get(jsonValue).toString()));
@@ -192,7 +195,7 @@ public class GenericWrappers extends Reports implements Wrappers {
 				} else {
 					jsonObject.put(itemsKey, map.get(jsonValue).toString());
 					
-				}
+				}*/
 			}
 
 		} catch (Exception e) {
@@ -242,8 +245,8 @@ public class GenericWrappers extends Reports implements Wrappers {
 	}
 	
 	public void logResponse(Response rep) {
-		logTestSteps("pass", "Send Customer Responce: Status => " + rep.jsonPath().getString("Status"));
-		logTestSteps("pass", "Send Customer Responce: Description => " + rep.jsonPath().getString("description"));
+		//logTestSteps("pass", "Send Customer Responce: Status => " + rep.jsonPath().getString("Status"));
+		//logTestSteps("pass", "Send Customer Responce: Description => " + rep.jsonPath().getString("description"));
 		logTestSteps("pass", "Send Customer Responce: Get Status Code => " + rep.getStatusCode());
 		logTestSteps("pass", "Send Customer Responce: Get Status Line => " + rep.getStatusLine());
 	}
